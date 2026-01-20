@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LocalVault</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Local-first • Encrypted • Cross-platform</p>
+          <h1>LocalVault</h1>
+          <p class="subtitle">A Notion + Obsidian hybrid with encrypted local storage and a glassmorphism iOS 26 aesthetic.</p>
+        </div>
+        <div class="hero-card">
+          <h2>Workspace Status</h2>
+          <p class="muted">Initialize a workspace and start encrypting content.</p>
+          <div class="status" id="status">Ready</div>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Initialize Workspace</h3>
+          <p class="muted">Creates a workspace layout with encrypted metadata.</p>
+          <form id="init-form">
+            <label>
+              Path
+              <input type="text" name="path" placeholder="~/LocalVault" required />
+            </label>
+            <label>
+              Passphrase
+              <input type="password" name="passphrase" required />
+            </label>
+            <label>
+              Spaces (comma separated)
+              <input type="text" name="spaces" placeholder="personal, work" />
+            </label>
+            <button type="submit">Initialize</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h3>Encrypt Text</h3>
+          <p class="muted">Encrypts plaintext and returns a base64 payload.</p>
+          <form id="encrypt-form">
+            <label>
+              Passphrase
+              <input type="password" name="passphrase" required />
+            </label>
+            <label>
+              Plaintext
+              <textarea name="plaintext" rows="6" required></textarea>
+            </label>
+            <button type="submit">Encrypt</button>
+          </form>
+          <label>
+            Encrypted Payload
+            <textarea id="encrypt-output" rows="5" readonly></textarea>
+          </label>
+        </article>
+
+        <article class="card">
+          <h3>Decrypt Payload</h3>
+          <p class="muted">Decrypts a base64 payload back into plaintext.</p>
+          <form id="decrypt-form">
+            <label>
+              Passphrase
+              <input type="password" name="passphrase" required />
+            </label>
+            <label>
+              Payload (base64)
+              <textarea name="payload" rows="6" required></textarea>
+            </label>
+            <button type="submit">Decrypt</button>
+          </form>
+          <label>
+            Plaintext Output
+            <textarea id="decrypt-output" rows="5" readonly></textarea>
+          </label>
+        </article>
+      </section>
+
+      <section class="card wide">
+        <h3>Cross-platform compatibility</h3>
+        <p class="muted">
+          LocalVault runs in any modern browser on macOS and Windows. The encrypted files are platform‑agnostic and can
+          be synced with any tool while remaining protected at rest.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

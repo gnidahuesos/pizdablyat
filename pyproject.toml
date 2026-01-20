@@ -1,0 +1,19 @@
+[project]
+name = "localvault"
+version = "0.1.0"
+description = "Local-first encrypted workspace combining block-based docs with markdown files."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "OpenAI Codex"}]
+dependencies = [
+  "cryptography>=41.0.0",
+  "argon2-cffi>=23.1.0",
+]
+
+[project.scripts]
+localvault = "localvault.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
