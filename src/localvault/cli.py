@@ -8,7 +8,6 @@ from pathlib import Path
 from localvault.crypto import KdfParams
 from localvault.storage import EncryptedStorage
 from localvault.workspace import Workspace
-from localvault.app import run_app
 
 
 def _init_workspace(args: argparse.Namespace) -> None:
@@ -58,9 +57,6 @@ def build_parser() -> argparse.ArgumentParser:
     dec.add_argument("output", help="output plaintext file")
     dec.add_argument("--passphrase", required=True)
     dec.set_defaults(func=_decrypt_file)
-
-    app = sub.add_parser("app", help="run the desktop app")
-    app.set_defaults(func=lambda args: run_app())
 
     return parser
 

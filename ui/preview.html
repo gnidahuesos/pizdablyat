@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalVault Desktop Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "SF Pro", "Inter", system-ui, sans-serif;
+        --glass: rgba(14, 20, 34, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.18);
+        --text: #f4f7ff;
+        --muted: rgba(244, 247, 255, 0.7);
+        --accent: #7ed0ff;
+        --accent-strong: #9b7bff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #0a0f1f;
+        color: var(--text);
+      }
+
+      .app {
+        min-height: 100vh;
+        padding: 48px 6vw 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(0px);
+        opacity: 0.8;
+        z-index: 0;
+      }
+
+      .orb-a {
+        width: 340px;
+        height: 340px;
+        background: radial-gradient(circle, rgba(126, 208, 255, 0.7), transparent 70%);
+        top: -80px;
+        left: -80px;
+      }
+
+      .orb-b {
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(circle, rgba(155, 123, 255, 0.6), transparent 70%);
+        bottom: -120px;
+        right: -80px;
+      }
+
+      .orb-c {
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, rgba(80, 235, 255, 0.45), transparent 70%);
+        top: 30%;
+        right: 20%;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 32px;
+      }
+
+      h1 {
+        font-size: 3.4rem;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 580px;
+      }
+
+      .eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+
+      .glass-card {
+        background: var(--glass);
+        border-radius: 28px;
+        border: 1px solid var(--glass-border);
+        padding: 24px;
+        backdrop-filter: blur(26px) saturate(180%);
+        box-shadow: 0 18px 40px rgba(5, 10, 30, 0.55);
+      }
+
+      .glass-card h2,
+      .glass-card h3 {
+        margin-bottom: 12px;
+      }
+
+      .glass-card p {
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+
+      input,
+      textarea {
+        background: rgba(9, 14, 26, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 14px;
+        padding: 10px 14px;
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      button {
+        border: none;
+        border-radius: 16px;
+        padding: 12px 18px;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        color: #081021;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(126, 208, 255, 0.25);
+      }
+
+      .chips {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .chip {
+        border-radius: 16px;
+        padding: 12px;
+        background: rgba(15, 22, 40, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .chip span {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .chip small {
+        color: var(--muted);
+      }
+
+      .wide {
+        margin-top: 32px;
+        position: relative;
+        z-index: 1;
+      }
+
+      ul {
+        margin-left: 18px;
+        color: var(--muted);
+        display: grid;
+        gap: 8px;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="orb orb-c"></div>
+
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Local-first • Encrypted • Cross-platform</p>
+          <h1>LocalVault Desktop</h1>
+          <p class="subtitle">A glassmorphism React shell inspired by iOS 26.</p>
+        </div>
+        <div class="glass-card">
+          <h2>Status</h2>
+          <p>Ready to initialize your encrypted workspace.</p>
+          <div class="chips">
+            <div class="chip">
+              <span>1,248</span>
+              <small>Encrypted pages</small>
+            </div>
+            <div class="chip">
+              <span>9,532</span>
+              <small>Backlinks</small>
+            </div>
+            <div class="chip">
+              <span>3</span>
+              <small>Spaces</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="glass-card">
+          <h3>Workspace Setup</h3>
+          <p>Provision a new encrypted vault on your local filesystem.</p>
+          <label>
+            Workspace path
+            <input value="~/LocalVault" />
+          </label>
+          <label>
+            Passphrase
+            <input type="password" value="" />
+          </label>
+          <label>
+            Spaces
+            <input value="personal, work" />
+          </label>
+          <button>Initialize</button>
+        </article>
+
+        <article class="glass-card">
+          <h3>Encrypt</h3>
+          <p>Encrypt plaintext locally and store it in the vault.</p>
+          <label>
+            Passphrase
+            <input type="password" value="" />
+          </label>
+          <label>
+            Plaintext
+            <textarea rows="6"></textarea>
+          </label>
+          <button>Encrypt</button>
+        </article>
+
+        <article class="glass-card">
+          <h3>Decrypt</h3>
+          <p>Paste encrypted payloads to preview decrypted content.</p>
+          <label>
+            Payload
+            <textarea rows="6"></textarea>
+          </label>
+          <button>Decrypt</button>
+        </article>
+      </section>
+
+      <section class="glass-card wide">
+        <h3>Desktop-first roadmap</h3>
+        <ul>
+          <li>Local-first storage with encrypted vaults</li>
+          <li>Block-based editor with stable IDs</li>
+          <li>Markdown-friendly pages and backlinks</li>
+          <li>Cross-platform desktop shell (macOS + Windows)</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

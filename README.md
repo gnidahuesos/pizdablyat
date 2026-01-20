@@ -13,17 +13,21 @@ This repository captures a **local-first knowledge system** that merges Notion�
 - A **structure spec** that defines the core content model (workspace → pages → blocks).
 - A **filesystem layout** that describes how encrypted files live on disk.
 - A **storage & encryption** design for local security.
-- A **cross-platform desktop app** for macOS and Windows.
+- A **cross-platform desktop React app** shell (ready for Tauri/Electron packaging).
 
 ## Documents
 - [Structure](docs/structure.md)
 - [Filesystem Layout](docs/filesystem-layout.md)
 - [Storage & Encryption](docs/storage-encryption.md)
 
-## Quick Start (Desktop App)
-1. Install the package requirements.
-2. Run the desktop app:
+## Quick Start (React Desktop Shell)
+1. Install UI dependencies:
    ```bash
-   python -m localvault.cli app
+   cd ui
+   npm install
    ```
-3. Use the app to initialize a workspace and encrypt/decrypt text.
+2. Run the React shell:
+   ```bash
+   npm run dev
+   ```
+3. Open the local dev URL to view the desktop-style UI.
