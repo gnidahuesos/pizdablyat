@@ -13,17 +13,17 @@ This repository captures a **local-first knowledge system** that merges Notion�
 - A **structure spec** that defines the core content model (workspace → pages → blocks).
 - A **filesystem layout** that describes how encrypted files live on disk.
 - A **storage & encryption** design for local security.
-- A **cross-platform UI** that runs locally in any modern browser on macOS and Windows.
+- A **cross-platform desktop app** for macOS and Windows.
 
 ## Documents
 - [Structure](docs/structure.md)
 - [Filesystem Layout](docs/filesystem-layout.md)
 - [Storage & Encryption](docs/storage-encryption.md)
 
-## Quick Start (Local UI)
+## Quick Start (Desktop App)
 1. Install the package requirements.
-2. Run the local UI server:
+2. Run the desktop app:
    ```bash
-   python -m localvault.server
+   python -m localvault.cli app
    ```
-3. Open `http://127.0.0.1:8000` in your browser to initialize a workspace and encrypt/decrypt text.
+3. Use the app to initialize a workspace and encrypt/decrypt text.

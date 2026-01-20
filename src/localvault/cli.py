@@ -6,9 +6,9 @@ import os
 from pathlib import Path
 
 from localvault.crypto import KdfParams
-from localvault.server import run_server
 from localvault.storage import EncryptedStorage
 from localvault.workspace import Workspace
+from localvault.app import run_app
 
 
 def _init_workspace(args: argparse.Namespace) -> None:
@@ -59,10 +59,8 @@ def build_parser() -> argparse.ArgumentParser:
     dec.add_argument("--passphrase", required=True)
     dec.set_defaults(func=_decrypt_file)
 
-    serve = sub.add_parser("serve", help="run the local web UI")
-    serve.add_argument("--host", default="127.0.0.1")
-    serve.add_argument("--port", type=int, default=8000)
-    serve.set_defaults(func=lambda args: run_server(args.host, args.port))
+    app = sub.add_parser("app", help="run the desktop app")
+    app.set_defaults(func=lambda args: run_app())
 
     return parser
 
