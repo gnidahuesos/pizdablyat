@@ -21,13 +21,19 @@ This repository captures a **local-first knowledge system** that merges Notionâ€
 - [Storage & Encryption](docs/storage-encryption.md)
 
 ## Quick Start (React Desktop Shell)
-1. Install UI dependencies:
+1. Install Node.js (LTS) and npm.
+2. Install UI dependencies:
    ```bash
    cd ui
    npm install
    ```
-2. Run the React shell:
+3. Run the React shell:
    ```bash
    npm run dev
    ```
-3. Open the local dev URL to view the desktop-style UI.
+4. Open the local dev URL shown in the terminal (usually `http://localhost:5173`).
+
+## MVP Features (Implemented in UI Shell)
+- Block editor with slash commands (\"/\") and Markdown shortcuts (`# ` for heading, `- ` for list).
+- Wiki-style links using `[[Page]]` with a search menu and clickable navigation.
+- Sidebar with page tree, search, and **+ New Page**.
